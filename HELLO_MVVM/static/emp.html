@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.7.1.js"></script>
+<script type="text/javascript">
+	function fn_list() {
+		$.ajax({
+			type : 'POST',
+			url : '/select_list',
+			success : function(res) {
+				var list = res.list;
+				var html = "";
+				
+				for (var i = 0; i < list.length; i++) {
+
+					var e_id = list[i].e_id;
+					var e_name = list[i].e_name;
+					var gen = list[i].gen;
+					var addr = list[i].addr;
+
+					html += "<tr>";
+					html += "<td>" + e_id + "</td>";
+					html += "<td>" + e_name + "</td>";
+					html += "<td>" + gen + "</td>";
+					html += "<td>" + addr + "</td>";
+					html += "</tr>";
+				}
+				$("#my_tbody").html(html);
+				console.log(res);
+			}
+		})
+	}
+	$(document).ready(function() {
+		fn_list();
+	});
+</script>
+</head>
+<body>
+	EMP HTML
+	<table border="1px">
+		<thead>
+			<tr>
+				<td>사번</td>
+				<td>이름</td>
+				<td>성별</td>
+				<td>주소</td>
+			</tr>
+		</thead>
+
+		<tbody id="my_tbody">
+			<tr>
+				<td colspan="4">선택된 데이터가 없습니다.</td>
+			</tr>
+		</tbody>
+
+
+	</table>
+
+</body>
+</html>
