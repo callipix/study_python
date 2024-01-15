@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.urls import path
 from HELLO_MVVM import views
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ajax', views.ajax),
     path('select_list', views.select_list),
+    path('select_one', views.select_one),
+    path('insert', views.insert),
+    path('update', views.update),
+    path('delete', views.delete),
 ]
