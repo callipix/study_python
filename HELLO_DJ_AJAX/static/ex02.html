@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+function start(){
+	var obj_it = document.getElementById("it");
+	var obj_ta = document.getElementById("ta");
+	
+	var dan = obj_it.value;
+	var idan = parseInt(dan);
+	var str="";
+	var txt ="";
+	
+	for(var i = 1; i <= 9;i++){	
+		txt += idan + "*"+i+"="+(idan*i)+"\n";
+		}
+	
+	obj_ta.value = txt;
+	num = document.getElementById("it").value;
+	
+	for(i = 1 ; i <= 9; i++ ){
+		str += `${num}*${i}=${num*i}`+"\n";
+	}
+	document.getElementById("ta").innerHTML=str;
+// textarea => value도 적용된다
+}
+
+</script>
+<style type="text/css">
+#it{
+width : 30px;
+}
+</style>
+</head>
+<body>
+<table border="1px">
+	<tr>
+		<td>출력단수</td>
+		<td><input type="text" id="it" /></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" value="출력하기" onclick="start()" />
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">	
+			<textarea id="ta" rows="10" cols="10"></textarea>
+		</td>
+	</tr>
+
+</table>
+</body>
+</html>
+
+
+
